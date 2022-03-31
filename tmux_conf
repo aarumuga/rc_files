@@ -1,0 +1,122 @@
+# tmux conf - contents from https://mutelight.org/practical-tmux
+# remap the prefix from C-b to C-a
+unbind C-b
+set -g prefix C-q
+
+# Enable mouse copy/paste/resizing pane.
+set -g mouse on
+
+# C-q + r to reload the tmux config
+unbind r
+bind-key r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# In copy mode use vi based navigation.
+set-window-option -g mode-keys vi
+
+# remap the the last window to C-q
+bind-key C-q last-window
+
+# Start numbering at 1 for the windows and panes.
+set -g base-index 1
+set-window-option -g pane-base-index 1
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+# Highlight active window
+set -g window-status-current-style bg=white,fg=black,bold
+
+
+# Create a new windown with the same directory path as the current pane.
+bind-key c new-window -c '#{pane_current_path}'
+
+# v and h are not bound by default, but we never know in the next versions...
+unbind v
+unbind h
+
+# unbind the % and " for vertical and horitzontal split.
+unbind % # Split vertically
+unbind '"' # Split horizontally
+
+# Create a vertical pane with the same directory path as the current pane.
+bind-key v split-window -h -c '#{pane_current_path}'
+
+# Create a horizontal pane with the same directory path as the current pane.
+bind-key s split-window -v -c '#{pane_current_path}'
+
+# Switch focus to the pane that is Left.
+bind-key h select-pane -L
+
+# Switch focus to the pane that is Down.
+bind-key j select-pane -D
+
+# Switch focus to the pane that is Up.
+bind-key k select-pane -U
+
+# Switch focus to the pane that is Right.
+bind-key l select-pane -R
+
+# Pass proper env values
+set -g update-environment -r
+
+# Huge scrollback
+set -g history-limit 1000000
+
+
+#### COLOUR (Solarized 256)
+# default statusbar colors
+set-option -g status-style fg=colour136,bg=colour235 #yellow and base02
+
+# default window title colors
+set-window-option -g window-status-style fg=colour244,bg=default #base0 and default
+#set-window-option -g window-status-style dim
+
+# active window title colors
+set-window-option -g window-status-current-style fg=colour166,bg=default #orange and default
+#set-window-option -g window-status-current-style bright
+
+# pane border
+set-option -g pane-border-style fg=colour235 #base02
+set-option -g pane-active-border-style fg=colour240 #base01
+
+# message text
+set-option -g message-style fg=colour166,bg=colour235 #orange and base02
+
+# pane number display
+set-option -g display-panes-active-colour colour33 #blue
+set-option -g display-panes-colour colour166 #orange
+
+# clock
+set-window-option -g clock-mode-colour colour64 #green
+
+# bell
+set-window-option -g window-status-bell-style fg=colour235,bg=colour160 #base02, red
+
+#### COLOUR (Solarized dark)
+# default statusbar colors
+set-option -g status-style fg=yellow,bg=black #yellow and base02
+
+# default window title colors
+set-window-option -g window-status-style fg=brightblue,bg=default #base0 and default
+#set-window-option -g window-status-style dim
+
+# active window title colors
+set-window-option -g window-status-current-style fg=brightred,bg=default #orange and default
+#set-window-option -g window-status-current-style bright
+
+# pane border
+set-option -g pane-border-style fg=black #base02
+set-option -g pane-active-border-style fg=brightgreen #base01
+
+# message text
+set-option -g message-style fg=brightred,bg=black #orange and base01
+
+# pane number display
+set-option -g display-panes-active-colour blue #blue
+set-option -g display-panes-colour brightred #orange
+
+# clock
+set-window-option -g clock-mode-colour green #green
+
+# bell
+set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
