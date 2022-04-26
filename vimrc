@@ -25,7 +25,7 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'kana/vim-textobj-user'
   Plugin 'kana/vim-textobj-line'
   Plugin 'kien/ctrlp.vim'
-  Plugin 'ton/vim-alternate'
+  Plugin 'vim-scripts/a.vim'
   Plugin 'preservim/tagbar'
   Plugin 'vim-airline/vim-airline'
 
@@ -53,16 +53,13 @@ filetype plugin indent on    " required.
 "  Vundle stuff end
 "================================================================================
 
-" Custom mapping leader is space. Default is \
-" Use the space key as our leader. Put this near the top of your vimrc.
-let mapleader = "\<Space>"
-" Split edit your vimrc. Type space, v, r in sequence to trigger.
+" Split edit your vimrc. Type \, v, r in sequence to trigger.
 nmap <leader>vr :vsp $MYVIMRC<cr>
-" Source (reload) your vimrc. Type space, s, o in sequence to trigger.
+" Source (reload) your vimrc. Type \, s, o in sequence to trigger.
 nmap <leader>so :source $MYVIMRC<cr>
-" Generate tagsbar for the current file. Type space, b in sequence to trigger.
+" Generate tagsbar for the current file. Type \, b in sequence to trigger.
 nmap <leader>b :TagbarToggle<cr>
-" Toggle relative number by space, r and space, R.
+" Toggle relative number by \, r and \, R.
 nmap <leader>r :set relativenumber<cr>
 nmap <leader>R :set norelativenumber<cr>
 

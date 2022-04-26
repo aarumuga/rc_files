@@ -9,7 +9,6 @@ antigen bundle command-not-found
 antigen bundle sudo
 antigen bundle copypath
 antigen bundle copybuffer
-antigen bundle copybuffer
 antigen bundle vi-mode
 
 antigen bundle zsh-users/zsh-autosuggestions
@@ -17,7 +16,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme candy
+antigen theme agnoster
 
 # Tell Antigen that you're done.
 antigen apply
